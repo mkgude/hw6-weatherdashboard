@@ -62,7 +62,7 @@ $(document).ready(() => {
       var lon = result.city.coord.lon;
       //          The UV Index color coding
       var uvQueryURL =
-        "http://api.openweathermap.org/data/2.5/uvi?appid=c7629276d88b73d9dee17485c554906b&lat=" +
+        "https://api.openweathermap.org/data/2.5/uvi?appid=c7629276d88b73d9dee17485c554906b&lat=" +
         lat +
         "&lon=" +
         lon;
