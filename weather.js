@@ -21,7 +21,7 @@ $(document).ready(() => {
     console.log(cityNameInput);
 
     var queryURL =
-      "http://api.openweathermap.org/data/2.5/forecast?q=" +
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
       cityNameInput +
       "&units=imperial&appid=c7629276d88b73d9dee17485c554906b";
     $.ajax({
@@ -41,7 +41,7 @@ $(document).ready(() => {
       $("#current-date").text(dateDisplay);
       //      an icon representation of weather conditions
       var iconCode = result.list[0].weather[0].icon;
-      var iconImage = "http://openweathermap.org/img/w/" + iconCode + ".png";
+      var iconImage = "https://openweathermap.org/img/w/" + iconCode + ".png";
       console.log(iconCode);
       console.log(iconImage);
       $("#current-weather-icon").attr("src", iconImage);
