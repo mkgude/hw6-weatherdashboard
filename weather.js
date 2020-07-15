@@ -1,5 +1,8 @@
+var searchHistory = []; // added
 $(document).ready(() => {
   console.log("ready");
+  // added
+
   // API Key by city
   // Dependencies
   // DOM elements ===============
@@ -12,21 +15,6 @@ $(document).ready(() => {
 
   console.log($(".submit"));
 
-  //   function renderCity() {
-  // Clear search history
-  // $("#search-history").text("");
-
-  // Render a new li for each city
-  //     for (var i = 0; i < cities.length; i++) {
-  //       var city = cities[i];
-  //       console.log(city);
-  //       var li = $("<li>").text(city);
-  //       $("#search-history").append(li);
-  //     }
-  //   }
-  // User types a city
-  //   $(".city");
-  // Submits their search city
   $(".submit").on("click", function () {
     event.preventDefault();
     var cityNameInput = $("#city-name").val();
@@ -100,57 +88,45 @@ $(document).ready(() => {
       //  Future weather displays
       //      5-day forecast that displays:
       //          the date
-      //   forEach(futureDates());
-      //   $("#date-one").text(result.list[7].dt_txt);
-      //          an icon representation of weather conditions
-      //          the temperature
-      //          the humidity
+      //
+      $("#temperature-one").text(result.list[8].main.temp);
 
-      //   var cityText = $("#city-name").val();
-      //   // Return from function early if submitted cityText is blank
-      //   if (cityText === "") {
-      //     return;
-      //   }
-      //   // Add new city to cities array, clear the input
-      //   cities.unshift(cityText);
-      //   $("#city-name").empty();
-      //   // Store updated cities in localStorage, re-render the list
-      //   storeCity();
-      //   renderCity();
+      $("#humidity-one").text(result.list[8].main.humidity);
+      $("#temperature-two").text(result.list[16].main.temp);
+      $("#humidity-two").text(result.list[16].main.humidity);
+      $("#temperature-three").text(result.list[16].wind.speed);
+      $("#humidity-three").text(result.list[16].main.pressure);
+      $("#temperature-four").text(result.list[24].main.temp);
+      $("#humidity-four").text(result.list[24].main.humidity);
+      $("#temperature-five").text(result.list[32].main.temp);
+      $("#humidity-five").text(result.list[32].main.humidity);
+      displayHistory();
     });
-    // function (citySearchHistory() {
-    //     for (var i = 0; i < cities.length; i++) {
-    //         var cityHistory = cities[i];
-
-    //         var li = document.createElement("li");
-    //         li.textContent = city;
-    //         li.setAttribute("data-index", i);
-
-    //         cityHistory.appendChild(li);
-    //       }
-
-    //     }
-    // });
 
     //  Search history is saved
     //  Search history saved below
-  });
-  // I click on a city in the search history
-  //   function storeCity() {
-  //     // Stringify and set "todos" key in localStorage to todos array
-  //     localStorage.setItem("cities", JSON.stringify(cities));
-  //   }
+    // added
+    function displayHistory() {
+      $("#history").empty();
+      for (var i = 0; i < searchHistory.length; i++) {
+        var cityDiv = $("<div>");
+        cityDiv.addClass("list-group-item");
+        cityDiv.text(searchHistory[i]);
+        $("#history").append(cityDiv);
+      }
 
-  //   function init() {
-  //     // Parsing the JSON string to an object
-  //     var storedCity = JSON.parse(localStorage.getItem("cities"));
-  //     // If todos were retrieved from localStorage, update the todos array to it
-  //     if (storedCity !== null) {
-  //       city = storedCity;
-  //     }
-  //     // Render todos to the DOM
-  //     renderCity();
-  //   }
+      //added user inputs search
+      function searchCity(event) {
+        event.preventDefault();
+        var cityName = $("#city-name").val();
+        localStorage.setItem("cities", JSON.stringify(searchHistory));
+        searchHistory.unshift(cityName);
+        displayHistory();
+        $("#city-name").val("");
+      }
+      searchCity();
+    }
+  });
 
   // I open the weather dashboard
   // I am presented with the last searched city forecast
