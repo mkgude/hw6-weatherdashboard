@@ -4,18 +4,34 @@ $(document).ready(() => {
   // Dependencies
   // DOM elements ===============
   // Starter Data ==============
-  var cities = [];
+
   // Functions======================
   // Display Data ==========
 
   // User Functions ==============
+
   console.log($(".submit"));
+
+  //   function renderCity() {
+  // Clear search history
+  // $("#search-history").text("");
+
+  // Render a new li for each city
+  //     for (var i = 0; i < cities.length; i++) {
+  //       var city = cities[i];
+  //       console.log(city);
+  //       var li = $("<li>").text(city);
+  //       $("#search-history").append(li);
+  //     }
+  //   }
   // User types a city
   //   $(".city");
   // Submits their search city
   $(".submit").on("click", function () {
+    event.preventDefault();
     var cityNameInput = $("#city-name").val();
     console.log(cityNameInput);
+
     var queryURL =
       "http://api.openweathermap.org/data/2.5/forecast?q=" +
       cityNameInput +
@@ -73,9 +89,9 @@ $(document).ready(() => {
         console.log(uvIndexValue);
         $("#current-uvindex").text(uvIndex);
         //      presented with a color that indicates whether the conditions are favorable, moderate, or severe
-        if (uvIndexValue <= 3) {
+        if (uvIndexValue <= 2) {
           $("#current-uvindex").css("background-color", "green");
-        } else if (uvIndexValue >= 7) {
+        } else if (uvIndexValue >= 6) {
           $("#current-uvindex").css("background-color", "red");
         } else {
           $("#current-uvindex").css("background-color", "yellow");
@@ -84,11 +100,23 @@ $(document).ready(() => {
       //  Future weather displays
       //      5-day forecast that displays:
       //          the date
-      forEach(futureDates());
-      $("#date-one").text(result.list[7].dt_txt);
+      //   forEach(futureDates());
+      //   $("#date-one").text(result.list[7].dt_txt);
       //          an icon representation of weather conditions
       //          the temperature
       //          the humidity
+
+      //   var cityText = $("#city-name").val();
+      //   // Return from function early if submitted cityText is blank
+      //   if (cityText === "") {
+      //     return;
+      //   }
+      //   // Add new city to cities array, clear the input
+      //   cities.unshift(cityText);
+      //   $("#city-name").empty();
+      //   // Store updated cities in localStorage, re-render the list
+      //   storeCity();
+      //   renderCity();
     });
     // function (citySearchHistory() {
     //     for (var i = 0; i < cities.length; i++) {
@@ -108,6 +136,21 @@ $(document).ready(() => {
     //  Search history saved below
   });
   // I click on a city in the search history
+  //   function storeCity() {
+  //     // Stringify and set "todos" key in localStorage to todos array
+  //     localStorage.setItem("cities", JSON.stringify(cities));
+  //   }
+
+  //   function init() {
+  //     // Parsing the JSON string to an object
+  //     var storedCity = JSON.parse(localStorage.getItem("cities"));
+  //     // If todos were retrieved from localStorage, update the todos array to it
+  //     if (storedCity !== null) {
+  //       city = storedCity;
+  //     }
+  //     // Render todos to the DOM
+  //     renderCity();
+  //   }
 
   // I open the weather dashboard
   // I am presented with the last searched city forecast

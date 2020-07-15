@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-background {
+  background-color: azure;
+}
+
+.search-history,
+.current-weather,
+.future-weather {
+  margin-top: 15px;
+}
+
+.current-card {
+  background-color: rgb(192, 221, 192);
+}
+
+.future-card {
+  margin: 3px;
+}

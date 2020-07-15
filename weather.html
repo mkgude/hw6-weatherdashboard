@@ -26,17 +26,18 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="weather.css" />
     <title>Weather Dashboard</title>
   </head>
   <body>
     <!-- As a heading -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light nav-background">
       <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
     </nav>
 
     <div class="container row">
       <!-- Search and history column -->
-      <div class="col-3">
+      <div class="col-md-3 search-history">
         <div class="input-group mb-3">
           <input
             id="city-name"
@@ -56,13 +57,13 @@
             </button>
           </div>
         </div>
-        <ul id="search-history"></ul>
+        <ul id="history"></ul>
       </div>
       <!-- weather results column  -->
-      <div class="container col-9">
+      <div class="container col-md-9">
         <!-- current  weather row  -->
-        <div class="row" id="current-weather">
-          <div class="card" style="width: 100%;">
+        <div class="row current-weather" id="current-weather">
+          <div class="card current-card" style="width: 100%;">
             <div class="card-header current-city">
               <h3 id="current-city"></h3>
               <span id="current-date"></span>
@@ -77,18 +78,18 @@
           </div>
         </div>
         <!-- future weather row -->
-        <div class="row" id="future-weather">
+        <div class="container row future-weather" id="future-weather">
           <h3>5 Day Forcast</h3>
 
           <div class="cards">
             <div
-              class="card text-white bg-dark mb-3 float-left"
-              style="width: 20%;"
+              class="card text-white bg-dark mb-3 float-left future-card"
+              style="width: 18%;"
             >
-              <div class="card-header">
+              <div class="card-header future-header">
                 <h5 class="card-title" id="date-one"></h5>
               </div>
-              <div class="card-body">
+              <div class="card-body future-card">
                 <img id="weather-icon" />
                 <p>Temp: <span class="temp"></span>F</p>
                 <p>Humidity: <span class="humidity"></span>%</p>
@@ -96,55 +97,58 @@
             </div>
 
             <div
-              class="card text-white bg-dark mb-3 float-left"
-              style="width: 20%;"
+              class="card text-white bg-dark mb-3 float-left future-card"
+              style="width: 18%;"
             >
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h5 class="card-title" id="date-two">Dark card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+              <div class="card-header future-header">
+                <h5 class="card-title" id="date-one"></h5>
+              </div>
+              <div class="card-body future-card">
+                <img id="weather-icon" />
+                <p>Temp: <span class="temp"></span>F</p>
+                <p>Humidity: <span class="humidity"></span>%</p>
               </div>
             </div>
+
             <div
-              class="card text-white bg-dark mb-3 float-left"
-              style="width: 20%;"
+              class="card text-white bg-dark mb-3 float-left future-card"
+              style="width: 18%;"
             >
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h5 class="card-title" id="date-three">Dark card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+              <div class="card-header future-header">
+                <h5 class="card-title" id="date-one"></h5>
+              </div>
+              <div class="card-body future-card">
+                <img id="weather-icon" />
+                <p>Temp: <span class="temp"></span>F</p>
+                <p>Humidity: <span class="humidity"></span>%</p>
               </div>
             </div>
+
             <div
-              class="card text-white bg-dark mb-3 float-left"
-              style="width: 20%;"
+              class="card text-white bg-dark mb-3 float-left future-card"
+              style="width: 18%;"
             >
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h5 class="card-title" id="date-four">Dark card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+              <div class="card-header future-header">
+                <h5 class="card-title" id="date-one"></h5>
+              </div>
+              <div class="card-body future-card">
+                <img id="weather-icon" />
+                <p>Temp: <span class="temp"></span>F</p>
+                <p>Humidity: <span class="humidity"></span>%</p>
               </div>
             </div>
+
             <div
-              class="card text-white bg-dark mb-3 float-left"
-              style="width: 20%;"
+              class="card text-white bg-dark mb-3 float-left future-card"
+              style="width: 18%;"
             >
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h5 class="card-title" id="date-five">Dark card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+              <div class="card-header future-header">
+                <h5 class="card-title" id="date-one"></h5>
+              </div>
+              <div class="card-body future-card">
+                <img id="weather-icon" />
+                <p>Temp: <span class="temp"></span>F</p>
+                <p>Humidity: <span class="humidity"></span>%</p>
               </div>
             </div>
           </div>
